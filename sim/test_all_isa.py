@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
+
 import os
+from sim_new_nowave import run_new_sim
 
 # 找出path目录下的所有bin文件
 def list_binfiles(path):
@@ -13,7 +16,7 @@ def list_binfiles(path):
     return files
 
 
-files = list_binfiles('..\\tests\\isa\\generated')
+files = list_binfiles('../tests/isa/generated')
 
 
 anyfail = False
@@ -21,11 +24,8 @@ anyfail = False
 # 对每一个bin文件进行测试
 for file in files:
     #print(file)
-    cmd = '.\\sim_new_nowave.bat ' + file + ' inst.data'
-    f = os.popen(cmd)
-    r = f.read()
-    f.close()
-    if (r.find('TEST_PASS') != -1):
+    result = run_new_sim(file, 'inst.data')
+    if result:
         print(file + '    PASS')
     else:
         print(file + '    !!!FAIL!!!')

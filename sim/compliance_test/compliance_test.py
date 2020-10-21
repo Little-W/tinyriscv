@@ -96,7 +96,7 @@ def main():
     #print(sys.argv[0] + ' ' + sys.argv[1] + ' ' + sys.argv[2])
 
     # 1.将bin文件转成mem文件
-    bin_to_mem_cmd = [r'..\..\tools\BinToMem_CLI.exe']
+    bin_to_mem_cmd = [r'python ../../tools/BinToMem_CLI.py']
     bin_to_mem_cmd.append(sys.argv[1])
     bin_to_mem_cmd.append(sys.argv[2])
     process = subprocess.Popen(bin_to_mem_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
