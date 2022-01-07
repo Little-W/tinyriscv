@@ -19,7 +19,7 @@
 // tinyriscv soc顶层模块
 module tinyriscv_soc_top(
 
-    input wire clk,
+    input wire clk_in,
     input wire rst_ext_i,
 
     output wire halted_ind,  // jtag是否已经halt住CPU信号
@@ -35,7 +35,7 @@ module tinyriscv_soc_top(
     output wire jtag_TDO     // JTAG TDO引脚
 
     );
-
+    wire clk;       //总时钟
     // master 0 interface
     wire[31:0] m0_addr_i;
     wire[31:0] m0_data_i;
@@ -157,7 +157,12 @@ module tinyriscv_soc_top(
     wire[31:0] gpio_data;
 
     assign int_flag = {{(`INT_WIDTH-1){1'b0}}, timer0_int};
-
+    //PLL_IP例化
+    eg4_PLL u_pll(
+        .refclk(clk_in),
+        .reset(~rst_ext_i),
+        .clk0_out(clk)
+    );
     // 复位控制模块例化
     rst_ctrl u_rst_ctrl(
         .clk(clk),

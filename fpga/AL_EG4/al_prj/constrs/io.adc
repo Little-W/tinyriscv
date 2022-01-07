@@ -1,0 +1,22 @@
+set_pin_assignment	{ clk_in }	{ LOCATION = P34; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ gpio[0] }	{ LOCATION = P23; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ gpio[1] }	{ LOCATION = P50; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ halted_ind }	{ LOCATION = P8; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ jtag_TCK }	{ LOCATION = P55; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ jtag_TDI }	{ LOCATION = P57; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ jtag_TDO }	{ LOCATION = P59; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ jtag_TMS }	{ LOCATION = P60; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ rst_ext_i }	{ LOCATION = P51; IOSTANDARD = LVCMOS33; }
+set_pin_assignment	{ uart_rx_pin }	{ LOCATION = P54; IOSTANDARD = LVTTL33; }
+set_pin_assignment	{ uart_tx_pin }	{ LOCATION = P52; IOSTANDARD = LVTTL33; PULLTYPE = PULLUP; }
+
+
+
+
+
+
+
+
+
+
+
