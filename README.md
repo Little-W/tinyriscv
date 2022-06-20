@@ -51,6 +51,12 @@ make run
 
 ![make_run](./pic/make_run.png)
 
+安装 openocd 
+
+```
+sudo apt-get install openocd
+```
+
 打开另一个终端，进入到tools/openocd目录下，运行openocd：
 
 ```
