@@ -35,22 +35,32 @@ module rom #(
 
     );
 
-    wire[31:0] addr = addr_i[31:2];
+    wire[13:0] addr = addr_i[15:2];
 
-    gen_ram #(
-        .DP(DP),
-        .DW(32),
-        .MW(4),
-        .AW(32)
-    ) u_gen_ram(
-        .clk(clk),
-        .addr_i(addr),
-        .data_i(data_i),
-        .sel_i(sel_i),
-        .we_i(we_i),
-        .data_o(data_o)
+    wire[3:0] wen;
+    assign wen = ({4{we_i}} & sel_i);   //写byte
+    
+    // gen_ram #(
+    //     .DP(DP),
+    //     .DW(32),
+    //     .MW(4),
+    //     .AW(32)
+    // ) u_gen_ram(
+    //     .clk(clk),
+    //     .addr_i(addr),
+    //     .data_i(data_i),
+    //     .sel_i(sel_i),
+    //     .we_i(we_i),
+    //     .data_o(data_o)
+    // );
+    //RAM32k_IP例化
+    gen_rom32_ip u_gen_rom1(
+        .clka(clk),
+        .wea(wen[3:0]),
+        .addra(addr[13:0]),
+        .dia(data_i[31:0]),
+        .doa(data_o[31:0])
     );
-
     vld_rdy #(
         .CUT_READY(0)
     ) u_vld_rdy(
