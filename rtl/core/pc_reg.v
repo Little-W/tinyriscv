@@ -13,7 +13,9 @@
  See the License for the specific language governing permissions and     
  limitations under the License.                                          
  */
-
+//*主要功能为：对指令存储器的地址信号，进行复位、跳转、暂停、地址递增等操作，
+//*即是对指令的地址进行处理，用于产生PC寄存器的值，该值会被用作指令存储器的地址信号，
+//*用来从rom中读取指令内容；*/
 `include "defines.v"
 
 // PC寄存器模块
